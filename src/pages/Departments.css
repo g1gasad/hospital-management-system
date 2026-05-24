@@ -1,0 +1,123 @@
+.departments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.departments-header {
+  margin-bottom: 2rem;
+}
+
+.departments-header h1 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.departments-header p {
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.department-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.department-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dept-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.department-card h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.dept-info {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.dept-info strong {
+  display: block;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.head-name {
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dept-doctors {
+  text-align: left;
+}
+
+.dept-doctors strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.dept-doctors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dept-doctors li {
+  padding: 0.5rem 0;
+  color: #667eea;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.dept-doctors li:last-child {
+  border-bottom: none;
+}
+
+.no-doctors {
+  color: #95a5a6;
+  font-size: 0.9rem;
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .departments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .departments-header h1 {
+    font-size: 1.5rem;
+  }
+}
