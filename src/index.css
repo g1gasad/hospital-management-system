@@ -75,11 +75,6 @@ textarea {
   color: inherit;
 }
 
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
 h1,
 h2 {
   font-family: var(--heading);
