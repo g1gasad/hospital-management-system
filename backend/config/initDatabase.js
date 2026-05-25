@@ -116,8 +116,8 @@ export async function insertSampleData() {
     // Check if data already exists
     let dataExists = false;
     try {
-      const result = await conn.execute('SELECT COUNT(*) as count FROM departments');
-      if (result.rows && result.rows[0][0] > 0) {
+      const result = await conn.execute('SELECT COUNT(*) AS count FROM departments');
+      if (Number(result.rows?.[0]?.COUNT || 0) > 0) {
         dataExists = true;
       }
     } catch (err) {

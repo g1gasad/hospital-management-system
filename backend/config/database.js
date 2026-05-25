@@ -13,11 +13,13 @@ const oracleConfig = {
   connectString: process.env.ORACLE_CONNECT_STRING || 'localhost:1521:xe'
 };
 
-// Initialize Oracle Client
-try {
-  oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_PATH || 'C:\\instantclient_21_12' });
-} catch (err) {
-  console.log('Oracle Client initialization note:', err.message);
+// Initialize Oracle Client only when Thick mode is explicitly configured.
+if (process.env.ORACLE_CLIENT_PATH) {
+  try {
+    oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_PATH });
+  } catch (err) {
+    console.log('Oracle Client initialization note:', err.message);
+  }
 }
 
 // Connection pool configuration
@@ -29,10 +31,10 @@ export async function initializePool() {
       user: oracleConfig.user,
       password: oracleConfig.password,
       connectString: oracleConfig.connectString,
-      poolMin: 2,
-      poolMax: 10,
-      poolIncrement: 1,
-      poolTimeout: 60
+      poolMin: Number(process.env.ORACLE_POOL_MIN || 0),
+      poolMax: Number(process.env.ORACLE_POOL_MAX || 5),
+      poolIncrement: Number(process.env.ORACLE_POOL_INCREMENT || 1),
+      poolTimeout: Number(process.env.ORACLE_POOL_TIMEOUT || 60)
     });
     console.log('✓ Oracle Connection Pool Created Successfully');
     return pool;

@@ -1,7 +1,7 @@
 // API Service for Hospital Management System
 // Connects to Oracle DBMS via Express backend
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Helper function for API calls
 async function apiCall(endpoint, method = 'GET', data = null) {
